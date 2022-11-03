@@ -4,6 +4,6 @@ const { getPokemon } = require('../controllers/pokemon-species.controller');
 
 const router = Router();
 
-router.get('/:param', validateJWT, getPokemon);
+router.get('/api/pokemon-species/:param', validateJWT, getPokemon);
 
 module.exports = router;

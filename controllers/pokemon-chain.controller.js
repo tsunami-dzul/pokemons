@@ -3,6 +3,9 @@ const { getDB } = require('../db/dbConnection');
 const collectionName = 'pokemon-evolution-chain';
 
 const getPokemon = async (req, res) => {
+    // #swagger.tags = ['Get pokemon chain']
+    // #swagger.description = 'Endpoint to recover pokemon chain. You can provide name for it.'
+
     try {
         const { param } = req.params;
 

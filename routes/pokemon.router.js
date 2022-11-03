@@ -6,7 +6,7 @@ const { create, update, remove, list, getPokemon } = require('../controllers/pok
 
 const router = Router();
 
-router.post('/', [
+router.post('/api/pokemon', [
     check('name', 'Name is required').notEmpty(),
     check('weight', 'Weight is required').notEmpty(),
     check('height', 'Height is required').notEmpty(),
@@ -15,12 +15,12 @@ router.post('/', [
     validateFields
 ], create);
 
-router.put('/:idParam', validateJWT, update);
+router.put('/api/pokemon/:idParam', validateJWT, update);
 
-router.delete('/:idParam', validateJWT, remove);
+router.delete('/api/pokemon/:idParam', validateJWT, remove);
 
-router.get('/', validateJWT, list);
+router.get('/api/pokemon', validateJWT, list);
 
-router.get('/:param', validateJWT, getPokemon);
+router.get('/api/pokemon/:param', validateJWT, getPokemon);
 
 module.exports = router;

@@ -6,6 +6,9 @@ const { getDB } = require('../db/dbConnection');
 const collectionName = 'users';
 
 const login = async (req, res) => {
+  // #swagger.tags = ['Authentication']
+  // #swagger.description = 'Endpoint to authenticate user.'
+
   try {
     const { email, password } = req.body;
     const user = getDB().collection(collectionName);
@@ -52,6 +55,9 @@ const login = async (req, res) => {
 };
 
 const renewToken = async (req, res) => {
+  // #swagger.tags = ['Renew token']
+  // #swagger.description = 'Endpoint to renew token.'
+
     try{
         const id = req.token._id;
         const user = getDB().collection(collectionName);

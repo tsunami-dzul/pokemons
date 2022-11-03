@@ -6,12 +6,12 @@ const { validateJWT } = require('../middlewares/validate-jwt');
 
 const router = Router();
 
-router.post('/', [
+router.post('/api/auth', [
     check('email', 'Email is required').notEmpty().isEmail(),
     check('password', 'Password is required').notEmpty(),
     validateFields
 ], login);
 
-router.get('/renew', validateJWT, renewToken);
+router.get('/api/renew', validateJWT, renewToken);
 
 module.exports = router;

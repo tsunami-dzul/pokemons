@@ -6,7 +6,7 @@ const { create, update, remove, list, getByEmail, getById } = require('../contro
 
 const router = Router();
 
-router.post('/', [
+router.post('/api/user', [
     check('name', 'Name is required').notEmpty(),
     check('lastName', 'Last name is required').notEmpty(),
     check('email', 'Email is required').notEmpty().isEmail(),
@@ -15,14 +15,14 @@ router.post('/', [
     validateFields
 ], create);
 
-router.put('/:id', validateJWT, update);
+router.put('/api/user/:id', validateJWT, update);
 
-router.delete('/:id', validateJWT, remove);
+router.delete('/api/user/:id', validateJWT, remove);
 
-router.get('/', validateJWT, list);
+router.get('/api/user', validateJWT, list);
 
-router.get('/:id', validateJWT, getById);
+router.get('/api/user/:id', validateJWT, getById);
 
-router.get('/byEmail/:email', validateJWT, getByEmail);
+router.get('/api/user/byEmail/:email', validateJWT, getByEmail);
 
 module.exports = router;

@@ -6,6 +6,9 @@ const { getDB } = require('../db/dbConnection');
 const collectionName = 'users';
 
 const list = async (req, res) => {
+    // #swagger.tags = ['List']
+    // #swagger.description = 'Endpoint to list users.'
+
     try {
         const { page = 1, limit = 10 } = req.query;
         const user = getDB().collection(collectionName);
@@ -39,6 +42,9 @@ const list = async (req, res) => {
 }
 
 const getByEmail = async (req, res) => {
+    // #swagger.tags = ['Get user by email']
+    // #swagger.description = 'Endpoint to recover a user based on email.'
+
     try {
         const { email } = req.params;
         const user = getDB().collection(collectionName);
@@ -72,6 +78,9 @@ const getByEmail = async (req, res) => {
 }
 
 const getById = async (req, res) => {
+    // #swagger.tags = ['Get user by mongo _id']
+    // #swagger.description = 'Endpoint to recover a user based on mongo _id.'
+
     try {
         const { id } = req.params;
         const user = getDB().collection(collectionName);
@@ -104,6 +113,9 @@ const getById = async (req, res) => {
 }
 
 const create = async (req, res) => {
+    // #swagger.tags = ['Create user']
+    // #swagger.description = 'Endpoint to create a user.'
+
     try {
         const { email, name, lastName, role, password } = req.body;
         const user = getDB().collection(collectionName);
@@ -157,6 +169,9 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
+    // #swagger.tags = ['Update user']
+    // #swagger.description = 'Endpoint to update a user.'
+
     try {
         const { id } = req.params;
         const { ...props } = req.body;
@@ -205,6 +220,9 @@ const update = async (req, res) => {
 }
 
 const remove = async (req, res) => {
+    // #swagger.tags = ['Delete user']
+    // #swagger.description = 'Endpoint to delete a user.'
+
     try {
         const { id } = req. params;
         const user = getDB().collection(collectionName);

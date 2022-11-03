@@ -4,6 +4,9 @@ const collectionPokemon = 'pokemons';
 const collectionPokemonDetails = 'pokemon-details';
 
 const list = async (req, res) => {
+    // #swagger.tags = ['List pokemons']
+    // #swagger.description = 'Endpoint to list pokemons.'
+
     try {
         const { page = 1, limit = 10 } = req.query;
         const pokemon = getDB().collection(collectionPokemon);
@@ -34,6 +37,8 @@ const list = async (req, res) => {
 }
 
 const getPokemon = async(req, res) => {
+    // #swagger.tags = ['Get pokemon']
+    // #swagger.description = 'Endpoint get a pokemon by id or name.'
     try {
         const { param } = req.params;
 
@@ -107,6 +112,9 @@ const getById = async (id, res) => {
 }
 
 const create = async (req, res) => {
+    // #swagger.tags = ['Create Pokemon']
+    // #swagger.description = 'Endpoint to create a pokemon.'
+
     try {
         const { ...props } = req.body;
         const pokemon = getDB().collection(collectionPokemon);
@@ -156,6 +164,9 @@ const create = async (req, res) => {
 }
 
 const update = async (req, res) => {
+    // #swagger.tags = ['Update pokemon']
+    // #swagger.description = 'Endpoint to update a pokemon.'
+
     try {
         const { idParam } = req.params;
         const { ...props } = req.body;
@@ -208,6 +219,9 @@ const update = async (req, res) => {
 }
 
 const remove = async (req, res) => {
+    // #swagger.tags = ['Delete pokemon']
+    // #swagger.description = 'Endpoint to delete a pokemon.'
+
     try {
         const { idParam } = req.params;
         const pokemon = getDB().collection(collectionPokemon);
